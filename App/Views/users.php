@@ -1,4 +1,4 @@
-<div class="row p-3">
+<div class="row p-2">
     <div class="col-12">
         <h1>Users</h1>
 

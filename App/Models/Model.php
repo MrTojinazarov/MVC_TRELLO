@@ -116,4 +116,14 @@ class Model extends Database
         
         return $stmt->fetch(PDO::FETCH_OBJ);
     }
+
+    public static function getAllUserTasks($id)
+    {
+        $sql = "SELECT * FROM " . static::$table . " WHERE user_id = :id";
+        $query = self::connect()->prepare($sql);
+        $query -> bindValue(":id", $id);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
 }

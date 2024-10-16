@@ -4,6 +4,7 @@ use App\Controllers\AuthController;
 use App\Controllers\IndexController;
 use App\Controllers\TaskController;
 use App\Controllers\UserController;
+use App\Controllers\WorkerController;
 use App\Routes\Route;
 
 Route::get("/", [IndexController::class, "index"]);
@@ -23,5 +24,5 @@ Route::get("/addtasks", [TaskController::class, "addtasks"]);
 Route::post("/addtasks", [TaskController::class, "createtasks"]);
 
 Route::post("/deleteTask", [TaskController::class, "deleteTask"]);
-
+Route::get("/", [WorkerController::class, "worker"]);
 ?>

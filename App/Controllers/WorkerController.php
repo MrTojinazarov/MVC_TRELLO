@@ -1,11 +1,10 @@
 <?php
-
 namespace App\Controllers;
-
-use App\Helpers\Auth;
+use App\Models\User;
 use App\Models\Task;
+use App\Helpers\Auth;
 
-class IndexController
+class WorkerController
 {
     public function __construct()
     {
@@ -38,10 +37,15 @@ class IndexController
             exit;
         }
     }
-    
-    
-    public function index()
+
+    public function worker()
     {
-        return view("index", "Main");
+        $id = ($_SESSION['Auth']->id);
+        $userTasks = Task::getAllUserTasks($id);
+        return view("worker", "Worker", $userTasks);
     }
 }
+
+
+
+?>

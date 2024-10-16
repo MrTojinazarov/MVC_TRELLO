@@ -30,24 +30,6 @@
                 <?php } ?>
             </select>
         </div>
-
-
-        <div class="form-group">
-            <label for="status" class="form-label">Holat:</label>
-            <select id="status" name="status" class="form-control">
-                <option value="0">New</option>
-                <option value="1">In Progress</option>
-                <option value="2">Under Review</option>
-                <option value="3">Completed</option>
-                <option value="4">Failed</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="comment" class="form-label">Izoh:</label>
-            <textarea id="comment" name="comment" class="form-control"></textarea>
-        </div>
-
         <button type="submit" name="ok" class="btn btn-primary">Qo'shish</button>
     </form>
 </div>

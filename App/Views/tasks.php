@@ -14,7 +14,7 @@
                 <th style="width: 150px;">Title</th>
                 <th style="width: 200px;">Description</th>
                 <th style="width: 100px;">Image</th>
-                <th style="width: 60px;">User ID</th>
+                <th style="width: 60px;">User</th>
                 <th style="width: 100px;">Status</th>
                 <th style="width: 200px;">Comment</th>
                 <th style="width: 100px;">Options</th>

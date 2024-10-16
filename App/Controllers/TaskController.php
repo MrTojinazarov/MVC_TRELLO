@@ -50,13 +50,11 @@ class TaskController
                 'title'       => $_POST['title'],
                 'description' => $_POST['description'],
                 'img'         => $imgPath,
-                'user_id'     => $_POST['user_id'],
-                'status'      => $_POST['status'],
-                'comment'     => $_POST['comment']
+                'user_id'     => $_POST['user_id']
             ];
         
             if(Task::addTask($data)){
-                header("Location: /tasks");
+                header("Location: /");
                 exit();
             }
         }

@@ -77,8 +77,8 @@ class Model extends Database
 
     public static function addTask($data)
     {
-        $sql = "INSERT INTO " . static::$table . " (title, description, img, user_id, status, comment) 
-                    VALUES (:title, :description, :img, :user_id, :status, :comment)";
+        $sql = "INSERT INTO " . static::$table . " (title, description, img, user_id) 
+                    VALUES (:title, :description, :img, :user_id)";
 
         $stmt = self::connect()->prepare($sql);
 
@@ -86,8 +86,6 @@ class Model extends Database
         $stmt->bindParam(':description', $data['description']);
         $stmt->bindParam(':img', $data['img']);
         $stmt->bindParam(':user_id', $data['user_id']);
-        $stmt->bindParam(':status', $data['status']);
-        $stmt->bindParam(':comment', $data['comment']);
 
         if($stmt->execute()){
             return true;

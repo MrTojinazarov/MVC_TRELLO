@@ -2,7 +2,7 @@
 namespace App\Controllers;
 
 use App\Helpers\Auth;
-use App\Models\User;
+use App\Models\Task;
 
 class IndexController
 {
@@ -17,7 +17,10 @@ class IndexController
 
     public function index()
     {
-        return view("index", "My page");
+        $id = Auth::user()->id;
+        $MyTasks = Task::getAllMyTasks($id);
+        // dd($MyTasks);
+        return view("index", "My page", $MyTasks);
     }
 }
 

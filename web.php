@@ -26,4 +26,6 @@ Route::post("/addtasks", [TaskController::class, "createtasks"]);
 Route::post("/deleteTask", [TaskController::class, "deleteTask"]);
 Route::post("/updateUserStatus", [UserController::class, "updateUserStatus"]);
 Route::get("/userPage", [IndexController::class, "index"]);
+Route::post("/sendTask", [TaskController::class, 'sendTask']);
+Route::post("/sendRequestTask", [TaskController::class, "sendRequestTask"]);
 ?>

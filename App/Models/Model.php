@@ -147,7 +147,7 @@ class Model extends Database
         return $row['count']; 
     }
 
-    public static function updateUserStatus($data)
+    public static function updateStatus($data)
     {
         $sql = "UPDATE " . static::$table . " SET status = :status WHERE id = :id";
         $stmt = self::connect()->prepare($sql);
@@ -159,6 +159,21 @@ class Model extends Database
             return true;
         }else{
             return false;
-        }
+        } 
     }
+
+    public static function getAllMyTasks($id)
+    {
+        $sql = "SELECT DISTINCT tasks.id as id, tasks.title as title, tasks.description as description, 
+                tasks.img as img, tasks.user_id as user_id, tasks.comment as comment, tasks.status as tstatus, users.status as ustatus 
+                FROM tasks 
+                LEFT JOIN users ON tasks.user_id = users.id 
+                WHERE tasks.user_id = :id";
+        $query = self::connect()->prepare($sql);
+        $query->bindValue(":id", $id);
+        $query->execute();
+    
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+     
 }

@@ -66,7 +66,7 @@ class UserController
                 'id' => $_POST['id'],
                 'status' => $_POST['status'] 
             ];
-            $update = User::updateUserStatus($data);
+            $update = User::updateStatus($data);
             if($update){
                 header("Location: /users");
                 exit();

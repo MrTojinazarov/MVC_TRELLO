@@ -61,6 +61,38 @@ class TaskController
         
     }
 
+    public function sendTask(){
+        if(isset($_POST['ok']) && !empty($_POST['task_id']) && !empty($_POST['new_status'])){
+            $data = [
+                'id' => $_POST['task_id'],
+                'status' => $_POST['new_status']
+            ];
+
+            if(Task::updateStatus($data)){
+                header("Location: /userPage");
+            }
+        }
+    }
+
+    public function sendRequestTask()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['task_id']) && !empty($_POST['new_status'])) {
+            $data = [
+                'id' => $_POST['task_id'],
+                'status' => $_POST['new_status']
+            ];
+    
+            if (Task::updateStatus($data)) {
+                header("Location: /");
+                exit(); 
+            } else {
+                echo "Taskni yangilashda xato yuz berdi."; 
+            }
+        } else {
+            echo "Barcha maydonlarni to'ldirishingiz kerak.";
+        }
+    }
+    
 }
 
 ?>

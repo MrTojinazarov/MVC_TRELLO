@@ -19,8 +19,9 @@ class UserController
     {
 
         $users = User::getAll();
-
-        return view("users", "Users", $users);
+        $cfUsersCount = User::confrimUsersCount();
+        $AcptUsersCount = User::AccUsersCount();
+        return view("users", "Users", ['models' => $users, 'cnfCount' => $cfUsersCount, 'acptCount' => $AcptUsersCount]);
     }
 
     public function saveUpdatedUser()
@@ -42,16 +43,33 @@ class UserController
             }
         }
     }
-
-    public function deleteUser()
+    public function confrimUsers()
     {
-        if (isset($_POST['ok']) && !empty($_POST['id'])) {
-            $id = $_POST['id'];
-            if (User::deleteById($id)) {
+        $users = User::getAll();
+        $UsersCount = User::UsersCount();
+        $AcptUsersCount = User::AccUsersCount();
+        return view("confrimUsers", "Confrim", ['models' => $users, 'count' => $UsersCount, 'acptCount' => $AcptUsersCount]);
+    }
+
+    public function acceptedUsers()
+    {
+        $users = User::getAll();
+        $UsersCount = User::UsersCount();
+        $cfUsersCount = User::confrimUsersCount();
+        return view("acceptedUsers", "Accepted", ['models' => $users, 'count' => $UsersCount, 'cnfCount' => $cfUsersCount]);
+    }
+
+    public function updateUserStatus()
+    {
+        if(isset($_POST['ok']) && (!empty($_POST['status']) || $_POST['status'] == 0) && !empty($_POST['id'])){
+            $data = [
+                'id' => $_POST['id'],
+                'status' => $_POST['status'] 
+            ];
+            $update = User::updateUserStatus($data);
+            if($update){
                 header("Location: /users");
                 exit();
-            } else {
-                echo "O'chirishda xato yuz berdi.";
             }
         }
     }

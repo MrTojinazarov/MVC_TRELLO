@@ -75,19 +75,6 @@ class Model extends Database
         return $stmt->execute();
     }
 
-    public static function deleteById($id)
-    {
-        $sql = "DELETE FROM " . static::$table . " WHERE id = :id";
-        $stmt = self::connect()->prepare($sql);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-
-        if ($stmt->execute()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public static function addTask($data)
     {
         $sql = "INSERT INTO " . static::$table . " (title, description, img, user_id, status, comment) 
@@ -126,4 +113,54 @@ class Model extends Database
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public static function confrimUsersCount()
+    {
+        $sql = "SELECT COUNT(*) as count FROM " . static::$table . " WHERE status = 0 AND role != 'admin'";
+
+        $result = self::connect()->query($sql);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+    
+        $row = $result->fetch();
+    
+        return $row['count'];
+    }
+
+    public static function UsersCount()
+    {
+        $sql = "SELECT COUNT(*) as count FROM " . static::$table;
+
+        $result = self::connect()->query($sql);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+    
+        $row = $result->fetch();
+    
+        return $row['count'];
+    }
+
+    public static function AccUsersCount()
+    {
+        $sql = "SELECT COUNT(*) as count FROM " . static::$table . " WHERE status = 1 AND role != 'admin'";
+
+        $result = self::connect()->query($sql);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+    
+        $row = $result->fetch();
+    
+        return $row['count']; 
+    }
+
+    public static function updateUserStatus($data)
+    {
+        $sql = "UPDATE " . static::$table . " SET status = :status WHERE id = :id";
+        $stmt = self::connect()->prepare($sql);
+
+        $stmt->bindParam(':status', $data['status'], PDO::PARAM_INT);
+        $stmt->bindParam(':id', $data['id'], PDO::PARAM_INT);
+
+        if($stmt->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

@@ -14,11 +14,14 @@ Route::post("/login", [AuthController::class, "login"]);
 Route::get("/logout", [AuthController::class, "logout"]);
 
 Route::get("/users", [UserController::class, "users"]);
+Route::get("/confrimUsers", [UserController::class, "confrimUsers"]);
+Route::get("/acceptedUsers", [UserController::class, "acceptedUsers"]);
 Route::post("/saveUpdatedUser", [UserController::class, "saveUpdatedUser"]);
-Route::post("/deleteUser", [UserController::class, "deleteUser"]);
 
 Route::get("/addtasks", [TaskController::class, "addtasks"]);
 Route::post("/addtasks", [TaskController::class, "createtasks"]);
 
 Route::post("/deleteTask", [TaskController::class, "deleteTask"]);
+Route::post("/updateUserStatus", [UserController::class, "updateUserStatus"]);
+
 ?>

@@ -63,19 +63,6 @@ class TaskController
         
     }
 
-    public function deleteTask()
-    {
-        if (isset($_POST['ok']) && !empty($_POST['id'])) {
-            $id = $_POST['id'];
-            if (Task::deleteById($id)) {
-                header("Location: /tasks");
-                exit();
-            } else {
-                echo "O'chirishda xato yuz berdi.";
-            }
-        }
-    }
-
 }
 
 ?>

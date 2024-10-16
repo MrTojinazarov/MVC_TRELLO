@@ -8,9 +8,9 @@ class TaskController
 {
     public function __construct()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
             layout('adminMain');
-        }else{
+        } else {
             header("Location: /login");
         }
     }

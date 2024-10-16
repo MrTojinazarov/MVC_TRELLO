@@ -1,1 +1,1 @@
-<h1>Index</h1>
+<h1>Users page</h1>

@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 use App\Models\User;
+use App\Helpers\Auth;
 
 class AuthController
 {
@@ -33,7 +34,15 @@ class AuthController
                 $user = User::getUserByLogin($data);
                 if($user){
                     $_SESSION['Auth'] = $user;
-                    header("Location: /");
+                    if(Auth::check()){
+                        if(Auth::user()->role == 'admin'){
+                            header("Location: /");
+                        }elseif(Auth::user()->role == 'user'){
+                            header("Location: /userPage");
+                        }
+                    }else{
+                        header("Location: /login");
+                    }
                     exit();
                 }else{
                     header("Location: /login");

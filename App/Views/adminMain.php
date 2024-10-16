@@ -186,26 +186,26 @@
       </section>
     </div>
   </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="App/Public/plugins/jquery/jquery.min.js"></script>
-        <script src="App/Public/plugins/jquery-ui/jquery-ui.min.js"></script>
-        <script>
-          $.widget.bridge('uibutton', $.ui.button)
-        </script>
-        <script src="App/Public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="App/Public/plugins/chart.js/Chart.min.js"></script>
-        <script src="App/Public/plugins/sparklines/sparkline.js"></script>
-        <script src="App/Public/plugins/jqvmap/jquery.vmap.min.js"></script>
-        <script src="App/Public/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-        <script src="App/Public/plugins/jquery-knob/jquery.knob.min.js"></script>
-        <script src="App/Public/plugins/moment/moment.min.js"></script>
-        <script src="App/Public/plugins/daterangepicker/daterangepicker.js"></script>
-        <script src="App/Public/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-        <script src="App/Public/plugins/summernote/summernote-bs4.min.js"></script>
-        <script src="App/Public/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-        <script src="App/Public/dist/js/adminlte.js"></script>
-        <script src="App/Public/dist/js/demo.js"></script>
-        <script src="App/Public/dist/js/pages/dashboard.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="App/Public/plugins/jquery/jquery.min.js"></script>
+  <script src="App/Public/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <script src="App/Public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="App/Public/plugins/chart.js/Chart.min.js"></script>
+  <script src="App/Public/plugins/sparklines/sparkline.js"></script>
+  <script src="App/Public/plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="App/Public/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+  <script src="App/Public/plugins/jquery-knob/jquery.knob.min.js"></script>
+  <script src="App/Public/plugins/moment/moment.min.js"></script>
+  <script src="App/Public/plugins/daterangepicker/daterangepicker.js"></script>
+  <script src="App/Public/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="App/Public/plugins/summernote/summernote-bs4.min.js"></script>
+  <script src="App/Public/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <script src="App/Public/dist/js/adminlte.js"></script>
+  <script src="App/Public/dist/js/demo.js"></script>
+  <script src="App/Public/dist/js/pages/dashboard.js"></script>
 </body>
 
 </html>

@@ -10,7 +10,7 @@ class UserController
     public function __construct()
     {
         if (Auth::check()) {
-            layout('tasksMain');
+            layout('adminMain');
         } else {
             header("Location: /login");
         }

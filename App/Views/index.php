@@ -1,3 +1,20 @@
+<?php
+foreach($models as $model){
+    $accept = $model->ustatus;
+    if($model->ustatus != 1){?>
+
+       <div class="row">
+        <div class="col-8 offset-2">
+            <p style="font-size: 40px; color: red;">Siz admin tomonidan active qilinmagansiz!</p>
+        </div>
+       </div> 
+
+   <?php break; }
+}
+?>
+<?php
+if($accept){?>
+
 <div class="row mt-3 mb-4 ms-2">
     <div class="col-10 offset-1">
         <h1>My tasks</h1>
@@ -5,7 +22,6 @@
 </div>
 
 <?php
-
 if (!empty($models)) {
     foreach ($models as $model) {
 ?>
@@ -98,5 +114,6 @@ if (!empty($models)) {
     }
 } else {
     echo "<p>Qaytarilgan topshiriqlar mavjud emas.</p>";
+}
 }
 ?>
